@@ -2,10 +2,11 @@
 
 ## Date: 5/5/22
 
+<img src="https://raw.githubusercontent.com/LawrenceOL/trendcollider/main/assets/trend%20collider.png" alt="Trend Collider"  style="max-width: 100%;">
+
 ### By: Lawrence O'Regan-Lloyd
 
 ### [Twitter](https://twitter.com/Lawrence_OL) | [Github](https://github.com/LawrenceOL) | [LinkedIn](https://www.linkedin.com/in/lawrenceol/)
-
 
 ---
 
@@ -21,26 +22,18 @@
 
 ---
 
-
-
 ### **_Technologies Used_**
 
 - Vue.js
 - Python
-  - Django 
+  - Django
 - PostgreSQL
-
-
 
 ### **_Future Updates_**
 
 - [ ] Link to deployment
 - [ ] Instructions for local installation
 
-
-
 ### **_Credits_**
 
 #### John Walker and his book on weight loss, [The Hacker's Diet](https://www.fourmilab.ch/hackdiet/)
-
-
