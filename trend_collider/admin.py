@@ -5,15 +5,8 @@ from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
 from django.core.exceptions import ValidationError
 
-from customauth.models import MyUser
-from .models import Account, Weigh_In, Stock_Pick
 
-
-# Register your models here.
-
-
-admin.site.register(Weigh_In)
-admin.site.register(Stock_Pick)
+from .models import Weigh_In, Stock_Pick, MyUser, MyUserManager
 
 
 class UserCreationForm(forms.ModelForm):
@@ -90,3 +83,6 @@ admin.site.register(MyUser, UserAdmin)
 # ... and, since we're not using Django's built-in permissions,
 # unregister the Group model from admin.
 admin.site.unregister(Group)
+
+admin.site.register(Weigh_In)
+admin.site.register(Stock_Pick)

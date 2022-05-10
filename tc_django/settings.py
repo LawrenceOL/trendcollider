@@ -86,7 +86,7 @@ DATABASES = {
     }
 }
 
-AUTH_USER_MODEL = 'customauth.MyUser'
+AUTH_USER_MODEL = 'trend_collider.MyUser'
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
