@@ -3,7 +3,7 @@ from django.db import models
 from django.contrib.auth.models import (
     BaseUserManager, AbstractBaseUser
 )
-from django.conf import settings
+from tc_django import settings
 
 
 class MyUserManager(BaseUserManager):
@@ -79,8 +79,6 @@ class Weigh_In(models.Model):
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE
     )
-    created = models.DateTimeField(editable=False)
-    modified = models.DateTimeField()
     date = models.DateField()
     weight = models.FloatField()
 
@@ -89,8 +87,6 @@ class Weigh_In(models.Model):
 
 
 class Stock_Pick(models.Model):
-    created = models.DateTimeField(editable=False)
-    modified = models.DateTimeField()
     symbol = models.CharField(max_length=5)
 
     def __str__(self):

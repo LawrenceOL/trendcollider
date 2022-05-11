@@ -4,9 +4,11 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-django = "*"
 psycopg2-binary = "*"
-python-dotenv = "*"
+python-dotenv = "~=0.19"
+requests = "~=2.27"
+Django = "~=4.0"
+Authlib = "~=1.0"
 
 [dev-packages]
 
