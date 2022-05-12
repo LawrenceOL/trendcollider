@@ -83,12 +83,13 @@ class Weigh_In(models.Model):
     weight = models.FloatField()
 
     def __str__(self):
-        return self.weight
+        weight = str(self.weight)
+        return weight
 
 
 class Stock_Pick(models.Model):
     symbol = models.CharField(max_length=15)
-    description = models.CharField(max_length=150, null=True)
+    description = models.CharField(max_length=150)
 
     def __str__(self):
         return self.symbol
