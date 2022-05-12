@@ -20,7 +20,7 @@ for idx, (x, y) in enumerate(zip(symbols, descriptions)):
     description = descriptions[idx].strip()
 
     wf.write(
-        f'{stock_pick}(symbol = {symbol}, description = {description}).save()\n')
+        f'{stock_pick}(symbol = "{symbol}", description = "{description}").save()\n')
 
 
 wf.close

@@ -87,7 +87,7 @@ class Weigh_In(models.Model):
 
 
 class Stock_Pick(models.Model):
-    symbol = models.CharField(max_length=5)
+    symbol = models.CharField(max_length=15)
     description = models.CharField(max_length=150, null=True)
 
     def __str__(self):
