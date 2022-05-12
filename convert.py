@@ -5,8 +5,8 @@ descriptions = []
 output = []
 stock_pick = "Stock_Pick"
 
-f = open("NYSE.txt", "r")
-wf = open("NYSE_imports.txt", "w")
+f = open("NASDAQ.txt", "r")
+wf = open("NASDAQ_imports.txt", "w")
 
 for line in f:
     line = line.partition("\t")
