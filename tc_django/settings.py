@@ -60,7 +60,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'corsheaders.middleware.CorsMiddleware',
-    'django.middleware.common.CommonMiddleware',
+
 
 
 ]
@@ -75,6 +75,8 @@ PUBLIC_VIEWS = [
 
     'trend_collider.views.index',
     'trend_collider.views.login',
+    'trend_collider.views.callback',
+    'trend_collider.views.logout',
 ]
 
 ROOT_URLCONF = 'tc_django.urls'
