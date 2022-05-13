@@ -2,7 +2,7 @@
 <ul>
     {% for stock in stocks %}
     <li>
-        <a href="">{{ stock.symbol }}</a>
+        ({{ stock.symbol }}) -- {{ stock.description }}
     </li>
     {% endfor %}
 </ul>

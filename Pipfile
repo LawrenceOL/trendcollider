@@ -9,6 +9,13 @@ python-dotenv = "~=0.19"
 requests = "~=2.27"
 Django = "~=4.0"
 Authlib = "~=1.0"
+djangorestframework = "*"
+cryptography = "*"
+python-jose = "*"
+six = "*"
+djangorestframework-simplejwt = "*"
+django-cors-headers = "*"
+django-glrm = "*"
 
 [dev-packages]
 

@@ -5,6 +5,8 @@ from django.conf import settings
 from django.shortcuts import redirect, render, redirect
 from django.urls import reverse
 from urllib.parse import quote_plus, urlencode
+from rest_framework.decorators import api_view
+from django.http import HttpResponse
 
 from .models import Weigh_In, Stock_Pick
 
@@ -23,7 +25,7 @@ oauth.register(
 
 def stock_list(request):
     stocks = Stock_Pick.objects.all()
-    return render(request, 'trend_collider/stocks.html', {'stocks': stocks})
+    return render(request, 'stock_list.html', {'stocks': stocks})
 
 
 def index(request):
@@ -63,3 +65,12 @@ def logout(request):
             quote_via=quote_plus,
         ),
     )
+
+
+def public(request):
+    return HttpResponse("You don't need to be authenticated to see this")
+
+
+@api_view(['GET'])
+def private(request):
+    return HttpResponse("You should not see this message if not authenticated!")
