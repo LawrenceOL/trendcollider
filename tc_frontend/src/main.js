@@ -6,8 +6,8 @@ const app = createApp(App);
 
 app.use(
   createAuth0({
-    domain: "dev-oe854-ql.us.auth0.com",
-    client_id: "z5cSnSTKaiEIb99ov1GXB8AEREQAJ2No",
+    domain: process.env.AUTH0_DOMAIN,
+    client_id: process.env.AUTH0_CLIENT_ID,
     redirect_uri: "http://127.0.0.1:8000/callback",
   })
 );
