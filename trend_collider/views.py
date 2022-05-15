@@ -10,7 +10,8 @@ from rest_framework.decorators import api_view
 from rest_framework.parsers import JSONParser
 from django.http import HttpResponse
 from django.contrib.auth import authenticate, login
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponseRedirect
+
 
 from .models import Weigh_In, Stock_Pick, MyUser
 

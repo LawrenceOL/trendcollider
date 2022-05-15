@@ -1,20 +1,31 @@
 <template>
   <div class="weight_chart">
     <h1>Weight Sheet</h1>
+    <h2 v-if="!this.editingId">Editing Mode Enabled</h2>
 
     <div v-for="(item, index) in weightList" :key="index">
       <table style="width: 100%" border="1px solid black" class="table">
         <tr>
           <th>Date</th>
           <th>Weight</th>
-          <th>ID</th>
+          <!-- <th>ID</th> -->
           <th>Edit</th>
           <th>Delete</th>
         </tr>
         <tr>
-          <td>{{ item.date }}</td>
-          <td>{{ item.weight }}</td>
-          <td>{{ item.id }}</td>
+          <!-- default not in editing mode -->
+          <td v-if="!this.editingId" class="editable {{ item.id }}">
+            {{ item.date }}
+          </td>
+          <td v-if="this.editingId"><input /></td>
+          <td v-if="this.editingId"><input /></td>
+
+          <td v-if="!this.editingId" class="editable {{ item.id }}">
+            {{ item.weight }}
+          </td>
+
+          <!-- editing mode -->
+
           <td class="editing">
             <button
               @click="this.handleClick"
@@ -81,6 +92,7 @@ export default {
   data: () => ({
     weightList: [],
     userId: null,
+    editingId: null,
   }),
   mounted: function () {
     this.getWeightList();
@@ -99,12 +111,16 @@ export default {
       // console.log(`${event.target.id}`);
       // console.log(`${event.target.classList}`);
       if (event.target.classList == "deleting") {
-        this.removeTask(event, index);
+        this.removeWeighIn(event, index);
       }
-
-      // this.removeTask(event.target.id);
+      if (event.target.classList == "editing") {
+        this.editingId = event.target.id;
+      }
+      // if (event.target.id == this.editingId) {
+      //   this.editingId = null;
+      // }
     },
-    async removeTask(event, index) {
+    async removeWeighIn(event, index) {
       //this.$delete(this.tasks, index);
 
       let remove = confirm("Are you sure? This will delete the weigh-in data.");
@@ -116,10 +132,6 @@ export default {
         );
       }
     },
-    // async getWeigh_Ins(coords) {
-    //   const res = await axios.get(`path`);
-    //   this.weigh_ins = res.data;
-    // },
   },
 };
 </script>
