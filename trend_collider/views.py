@@ -30,19 +30,19 @@ def stock_list(request):
     return render(request, 'stock_list.html', {'stocks': stocks})
 
 
-# def weigh_ins(request):
+def weigh_ins(request):
 
-#     weigh_ins = Weigh_In.objects.filter(weigh_in_user=1)
+    weigh_ins = Weigh_In.objects.filter(weigh_in_user=1)
 
-#     return render(
-#         request,
-#         "weigh_ins.html",
-#         context={
-#             "session": request.session.get("user"),
-#             "pretty": json.dumps(request.session.get("user"), indent=4),
-#             'weigh_ins': weigh_ins,
-#         },
-#     )
+    # return render(
+    #     request,
+    #     "weigh_ins.html",
+    #     context={
+    #         "session": request.session.get("user"),
+    #         "pretty": json.dumps(request.session.get("user"), indent=4),
+    #         'weigh_ins': weigh_ins,
+    #     },
+    # )
 
 
 def weigh_ins(request):
