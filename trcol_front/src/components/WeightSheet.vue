@@ -14,7 +14,11 @@
           <td>{{ item.date }}</td>
           <td>{{ item.weight }}</td>
           <td class="editing">
-            <button @click="this.handleClick" v-bind:id="index" class="editing">
+            <button
+              @click="this.handleClick"
+              v-bind:id="item.id"
+              class="editing"
+            >
               <svg
                 v-bind:id="item.id"
                 xmlns="http://www.w3.org/2000/svg"
@@ -90,8 +94,7 @@ export default {
     },
 
     handleClick(event) {
-      alert(`${event.target.id}`);
-      alert(`${event.target.classList}`);
+      console.log(`${event.target.id}`);
 
       // this.removeTask(event.target.id);
     },
