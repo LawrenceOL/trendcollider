@@ -1,6 +1,6 @@
 <template>
   <div>
-    <NavBar />
+    <!-- <NavBar /> -->
 
     <h1>Trend Collider</h1>
     <h2>Collide your Trends</h2>
@@ -13,7 +13,7 @@ import axios from "axios";
 // import WeightChart from './components/WeightChart.vue'
 // const API_KEY =  ''
 
-import NavBar from "./components/NavBar.vue";
+// import NavBar from "./NavBar.vue";
 
 export default {
   //   setup() {
@@ -28,7 +28,7 @@ export default {
 
   name: "App",
   components: {
-    NavBar,
+    // NavBar,
   },
   data: () => ({
     weightList: [],

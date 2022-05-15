@@ -1,7 +1,8 @@
 <template>
   <div>
     <NavBar />
-    <router-view header="Listings In Miami"></router-view>
+    <WeightChart :weightList="weightList" />
+    <router-view header="Trend Collider"></router-view>
     <h1>Trend Collider</h1>
     <h2>Collide your Trends</h2>
     <!--  <button @click="login">Log in</button> -->
@@ -10,7 +11,7 @@
 <script>
 // import { useAuth0 } from "@auth0/auth0-vue";
 import axios from "axios";
-// import WeightChart from './components/WeightChart.vue'
+import WeightChart from "./components/WeightChart.vue";
 // const API_KEY =  ''
 
 import NavBar from "./components/NavBar.vue";
@@ -29,6 +30,7 @@ export default {
   name: "App",
   components: {
     NavBar,
+    WeightChart,
   },
   data: () => ({
     weightList: [],
