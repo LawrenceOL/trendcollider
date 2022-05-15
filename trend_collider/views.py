@@ -28,6 +28,11 @@ def stock_list(request):
     return render(request, 'stock_list.html', {'stocks': stocks})
 
 
+def weigh_ins(request):
+    weigh_ins = Weigh_In.objects.all()
+    return render(request, 'weigh_ins.html', {'weigh_ins': weigh_ins})
+
+
 def index(request):
 
     return render(

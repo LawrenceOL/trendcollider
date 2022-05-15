@@ -10,4 +10,5 @@ urlpatterns = [
     path("stock_list/", views.stock_list, name="stock_list"),
     path("api/public", views.public, name="public"),
     path("api/private", views.private, name="private"),
+    path("weigh_ins", views.weigh_ins, name="weigh_ins"),
 ]

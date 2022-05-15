@@ -1,0 +1,8 @@
+<h2>Weigh Ins</h2>
+<ul>
+    {% for weigh_in in weigh_ins %}
+    <li>
+        ({{ weigh_in.weight }}) -- {{ weigh_in.date }}
+    </li>
+    {% endfor %}
+</ul>
