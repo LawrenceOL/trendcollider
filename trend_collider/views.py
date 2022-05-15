@@ -58,12 +58,16 @@ def weigh_ins(request):
 
 @api_view(['GET', 'PUT', 'DELETE', 'POST'])
 def weigh_in_detail(request, id):
+    weigh_in = Weigh_In.objects.filter(
+        id=id,)
     # find weigh_in by pk (id)
 
     if request.method == 'DELETE':
 
-        print(id)
-        return HttpResponse("made it")
+        weigh_in.delete()
+        return HttpResponseRedirect("/")
+
+    return render(request)
 
 
 def index(request):
