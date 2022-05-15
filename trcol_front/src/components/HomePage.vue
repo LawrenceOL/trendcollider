@@ -4,6 +4,9 @@
 
     <h1>Trend Collider</h1>
     <h2>Collide your Trends</h2>
+    <div v-for="(item, index) in weightList" :key="index">
+      <h2>{{ item }}</h2>
+    </div>
     <!--  <button @click="login">Log in</button> -->
   </div>
 </template>
@@ -26,7 +29,7 @@ export default {
   //     };
   //   },
 
-  name: "App",
+  name: "HomePage",
   components: {
     // NavBar,
   },

@@ -1,53 +1,21 @@
+54 lines (48 sloc) 959 Bytes
+
 <template>
   <div>
     <NavBar />
-    <WeightChart :weightList="weightList" />
-    <router-view header="Trend Collider"></router-view>
-    <h1>Trend Collider</h1>
-    <h2>Collide your Trends</h2>
-    <!--  <button @click="login">Log in</button> -->
+    <main>
+      <router-view header="Trend Collider"></router-view>
+    </main>
   </div>
 </template>
-<script>
-// import { useAuth0 } from "@auth0/auth0-vue";
-import axios from "axios";
-import WeightChart from "./components/WeightChart.vue";
-// const API_KEY =  ''
 
+<script>
 import NavBar from "./components/NavBar.vue";
 
 export default {
-  //   setup() {
-  //     const { loginWithRedirect } = useAuth0();
-
-  //     return {
-  //       login: () => {
-  //         loginWithRedirect();
-  //       },
-  //     };
-  //   },
-
   name: "App",
   components: {
     NavBar,
-    WeightChart,
-  },
-  data: () => ({
-    weightList: [],
-  }),
-  mounted: function () {
-    this.getWeightList();
-  },
-  methods: {
-    async getWeightList() {
-      const res = await axios.get("http://127.0.0.1:8000/weigh_ins");
-
-      this.weightList = res.data;
-    },
-    // async getWeigh_Ins(coords) {
-    //   const res = await axios.get(`path`);
-    //   this.weigh_ins = res.data;
-    // },
   },
 };
 </script>

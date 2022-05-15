@@ -1,20 +1,20 @@
 <template>
   <div class="weight_chart">
     <h1>Weight Sheet</h1>
-    <div v-for="(item, index) in weightList" :key="index">
+    <!-- <div v-for="(item, index) in weightList" :key="index">
       <h2>{{ item }}</h2>
       <WeightChart :weightList="weightList" />
-    </div>
+    </div> -->
   </div>
 </template>
 
 <script>
-import WeightChart from "./WeightChart.vue";
+// import WeightChart from "./WeightChart.vue";
 
 export default {
-  name: "WeightChart",
-  props: ["weightList"],
-  components: { WeightChart },
+  // name: "WeightChart",
+  // props: ["weightList"],
+  // components: { WeightChart },
 };
 </script>
 
