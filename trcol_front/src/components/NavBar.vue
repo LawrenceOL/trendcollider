@@ -17,13 +17,14 @@ export default {
 }
 
 nav {
-  background: #42b983;
+  background: #b98542;
   padding: 1em;
+  width: 90vw;
 }
 
 nav a {
   margin: 1em;
-  color: #2c3e50;
+  color: #0d1217;
   text-decoration: none;
   font-weight: 800;
 }

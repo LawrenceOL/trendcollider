@@ -2,8 +2,8 @@
   <div>
     <!-- <NavBar /> -->
 
-    <h1>Trend Collider</h1>
-    <h2>Collide your Trends</h2>
+    <h1 id="trendcollider">Trend Collider</h1>
+    <h2 font-style="italic">Collide your Trends</h2>
     <img
       src="../assets/tr.png"
       alt="image featuring someone's weight and someone's stock pick"
@@ -61,5 +61,12 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+img {
+  width: 90vw;
+  margin-top: 50px;
+}
+#trendcollider {
+  margin-top: 20px;
 }
 </style>

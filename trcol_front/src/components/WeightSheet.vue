@@ -126,4 +126,9 @@ li {
 a {
   color: #42b983;
 }
+
+h1 {
+  font-weight: bold;
+  margin: 35px 0 50px 0;
+}
 </style>
