@@ -47,7 +47,7 @@ def weigh_ins(request):
 
 def weigh_ins(request):
     weigh_ins = Weigh_In.objects.filter(
-        weigh_in_user=1).values('date', 'weight', 'id')
+        weigh_in_user=1).values('date', 'weight', 'id').order_by('date')
 
     # convert our artists to a list instead of QuerySet
     weigh_ins_list = list(weigh_ins)
