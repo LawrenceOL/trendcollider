@@ -1,7 +1,7 @@
 <template>
   <div>
     <NavBar />
-    <router-view header="Listings In Miami"></router-view>
+
     <h1>Trend Collider</h1>
     <h2>Collide your Trends</h2>
     <!--  <button @click="login">Log in</button> -->
