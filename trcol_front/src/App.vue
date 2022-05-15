@@ -3,7 +3,7 @@
     <h1>Trend Collider</h1>
     <h2>Collide your Trends</h2>
     <!--  <button @click="login">Log in</button> -->
-    <WeightChart />
+    <WeightChart :weightList="weightList" />
   </div>
 </template>
 <script>
@@ -37,7 +37,8 @@ export default {
   methods: {
     async getWeightList() {
       const res = await axios.get("http://127.0.0.1:8000/weigh_ins");
-      this.WeightList = res.data;
+
+      this.weightList = res.data;
     },
     // async getWeigh_Ins(coords) {
     //   const res = await axios.get(`path`);
