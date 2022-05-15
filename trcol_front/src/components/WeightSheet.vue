@@ -2,7 +2,7 @@
   <div class="weight_chart">
     <h1>Weight Sheet</h1>
     <div v-for="(item, index) in weightList" :key="index">
-      <table style="width: 100%" border="1px solid black">
+      <table style="width: 100%" border="1px solid black" class="table">
         <tr>
           <th>Date</th>
           <th>Weight</th>
