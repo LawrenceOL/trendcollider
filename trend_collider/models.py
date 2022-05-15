@@ -75,9 +75,9 @@ class MyUser(AbstractBaseUser):
 
 
 class Weigh_In(models.Model):
-    weight_in_user = models.ForeignKey(
+    weigh_in_user = models.ForeignKey(
         settings.AUTH_USER_MODEL,
-        on_delete=models.CASCADE
+        on_delete=models.PROTECT
     )
     date = models.DateField()
     weight = models.FloatField()

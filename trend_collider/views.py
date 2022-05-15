@@ -9,7 +9,7 @@ from rest_framework.decorators import api_view
 from django.http import HttpResponse
 from django.contrib.auth import authenticate, login
 
-from .models import Weigh_In, Stock_Pick
+from .models import Weigh_In, Stock_Pick, MyUser
 
 oauth = OAuth()
 
@@ -30,7 +30,15 @@ def stock_list(request):
 
 
 def weigh_ins(request):
-    weigh_ins = Weigh_In.objects.all()
+
+    session = request.session.get("user")
+    email = session["userinfo"]
+    id = MyUser.objects.raw(
+        f"SELECT id from trend_collider_myuser WHERE email = {email}")
+
+    id = MyUser.objects.all()
+    weigh_ins = Weigh_In.objects.filter(weight_in_user=1)
+    print(email)
 
     return render(
         request,
@@ -38,7 +46,8 @@ def weigh_ins(request):
         context={
             "session": request.session.get("user"),
             "pretty": json.dumps(request.session.get("user"), indent=4),
-            'weigh_ins': weigh_ins
+            'weigh_ins': weigh_ins,
+
         },
 
     )
