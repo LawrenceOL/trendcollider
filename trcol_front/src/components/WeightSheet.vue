@@ -46,7 +46,6 @@
         </tr>
       </table>
     </div>
-    <p>The button above has been clicked {{ counter }} times.</p>
   </div>
 </template>
 
@@ -82,10 +81,14 @@ export default {
   },
   methods: {
     async getWeightList() {
-      const res = await axios.get("http://127.0.0.1:8000/weigh_ins");
+      const res = await axios.get("http://localhost:8000/weigh_ins");
       this.weightList = res.data;
       this.userId = res.data[0].weigh_in_user;
     },
+    navigateItem() {
+      this.$router.push(`/id/date/weight`);
+    },
+
     handleClick(event) {
       alert(`${event.target.id}`);
       alert(`${event.target.classList}`);
