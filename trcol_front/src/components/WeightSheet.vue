@@ -16,7 +16,7 @@
           <td class="editing">
             <button @click="this.handleClick" v-bind:id="index" class="editing">
               <svg
-                v-bind:id="index"
+                v-bind:id="item.id"
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
                 height="16"
