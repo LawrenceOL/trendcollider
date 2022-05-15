@@ -3,14 +3,15 @@
     <h1>Trend Collider</h1>
     <h2>Collide your Trends</h2>
     <!--  <button @click="login">Log in</button> -->
-    <HelloWorld />
+    <WeightChart />
   </div>
 </template>
 <script>
 // import { useAuth0 } from "@auth0/auth0-vue";
-// import axios from 'axios'
+import axios from "axios";
 // import WeightChart from './components/WeightChart.vue'
 // const API_KEY =  ''
+import WeightChart from "./components/WeightChart";
 
 export default {
   //   setup() {
@@ -25,11 +26,19 @@ export default {
 
   name: "App",
   components: {
-    HelloWorld,
+    WeightChart,
   },
-  data: () => ({}),
-  mounted: function () {},
+  data: () => ({
+    weightList: [],
+  }),
+  mounted: function () {
+    this.getWeightList();
+  },
   methods: {
+    async getWeightList() {
+      const res = await axios.get("http://127.0.0.1:8000/weigh_ins");
+      this.WeightList = res.data;
+    },
     // async getWeigh_Ins(coords) {
     //   const res = await axios.get(`path`);
     //   this.weigh_ins = res.data;

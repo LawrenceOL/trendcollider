@@ -19,7 +19,8 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='weigh_in',
             name='weigh_in_user',
-            field=models.ForeignKey(default=100, on_delete=django.db.models.deletion.PROTECT, to=settings.AUTH_USER_MODEL),
+            field=models.ForeignKey(
+                default=1, on_delete=django.db.models.deletion.PROTECT, to=settings.AUTH_USER_MODEL),
             preserve_default=False,
         ),
     ]
