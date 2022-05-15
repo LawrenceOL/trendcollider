@@ -1,7 +1,8 @@
-<h2>Weigh Ins</h2>
+<h2>Weigh Ins {{session.userinfo.name}}</h2>
 <ul>
     {% for weigh_in in weigh_ins %}
     <li>
+        Hi
         ({{ weigh_in.weight }}) -- {{ weigh_in.date }}
     </li>
     {% endfor %}

@@ -7,6 +7,7 @@ from django.urls import reverse
 from urllib.parse import quote_plus, urlencode
 from rest_framework.decorators import api_view
 from django.http import HttpResponse
+from django.contrib.auth import authenticate, login
 
 from .models import Weigh_In, Stock_Pick
 
@@ -30,7 +31,17 @@ def stock_list(request):
 
 def weigh_ins(request):
     weigh_ins = Weigh_In.objects.all()
-    return render(request, 'weigh_ins.html', {'weigh_ins': weigh_ins})
+
+    return render(
+        request,
+        "weigh_ins.html",
+        context={
+            "session": request.session.get("user"),
+            "pretty": json.dumps(request.session.get("user"), indent=4),
+            'weigh_ins': weigh_ins
+        },
+
+    )
 
 
 def index(request):
@@ -42,6 +53,7 @@ def index(request):
             "session": request.session.get("user"),
             "pretty": json.dumps(request.session.get("user"), indent=4),
         },
+
     )
 
 
