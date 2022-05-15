@@ -10,4 +10,5 @@ urlpatterns = [
     path("api/public", views.public, name="public"),
     path("api/private", views.private, name="private"),
     path("weigh_ins", views.weigh_ins, name="weigh_ins"),
+    path("weigh_in_detail", views.weigh_in_detail, name="weight_in_detail")
 ]

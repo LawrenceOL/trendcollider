@@ -5,7 +5,9 @@ from django.conf import settings
 from django.shortcuts import redirect, render, redirect
 from django.urls import reverse
 from urllib.parse import quote_plus, urlencode
+from rest_framework import status
 from rest_framework.decorators import api_view
+from rest_framework.parsers import JSONParser
 from django.http import HttpResponse
 from django.contrib.auth import authenticate, login
 from django.http import JsonResponse
@@ -49,10 +51,23 @@ def weigh_ins(request):
     weigh_ins = Weigh_In.objects.filter(
         weigh_in_user=1).values('date', 'weight', 'id').order_by('date')
 
-    # convert our artists to a list instead of QuerySet
     weigh_ins_list = list(weigh_ins)
-    # safe=False is needed if the first parameter is not a dictionary.
+
     return JsonResponse(weigh_ins_list, safe=False)
+
+
+@api_view(['GET', 'PUT', 'DELETE'])
+def weigh_in_detail(request):
+    # find weigh_in by pk (id)
+
+    if request.method == 'GET':
+        # weigh_in = Weigh_In.objects.filter(
+        #     id=pk).values('date', 'weight', 'id')
+        # check_params = request.query_params.get()
+        print('whaaaaaaaaaat')
+        # print(check_params)
+        # return weigh_in
+        return HttpResponse("made it")
 
 
 def index(request):
