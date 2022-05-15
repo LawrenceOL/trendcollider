@@ -7,12 +7,14 @@
         <tr>
           <th>Date</th>
           <th>Weight</th>
+          <th>ID</th>
           <th>Edit</th>
           <th>Delete</th>
         </tr>
         <tr>
           <td>{{ item.date }}</td>
           <td>{{ item.weight }}</td>
+          <td>{{ item.id }}</td>
           <td class="editing">
             <button
               @click="this.handleClick"
@@ -41,7 +43,7 @@
           <td>
             <button
               @click="this.handleClick"
-              v-bind:id="index"
+              v-bind:id="item.id"
               class="deleting"
             >
               ❌
@@ -93,16 +95,25 @@ export default {
       this.$router.push(`/id/date/weight`);
     },
 
-    handleClick(event) {
-      console.log(`${event.target.id}`);
+    handleClick(event, index) {
+      // console.log(`${event.target.id}`);
+      // console.log(`${event.target.classList}`);
+      if (event.target.classList == "deleting") {
+        this.removeTask(event, index);
+      }
 
       // this.removeTask(event.target.id);
     },
-    removeTask(index) {
+    async removeTask(event, index) {
       //this.$delete(this.tasks, index);
+
       let remove = confirm("Are you sure? This will delete the weigh-in data.");
       if (remove === true) {
         this.weightList.splice(index, 1);
+        console.log(event.target.id);
+        await axios.delete(
+          `http://127.0.0.1:8000/weigh_in_detail/${event.target.id}`
+        );
       }
     },
     // async getWeigh_Ins(coords) {
