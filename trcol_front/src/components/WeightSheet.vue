@@ -17,8 +17,12 @@
           <td v-if="!this.editingId" class="editable {{ item.id }}">
             {{ item.date }}
           </td>
-          <td v-if="this.editingId"><input /></td>
-          <td v-if="this.editingId"><input /></td>
+          <td v-if="this.editingId">
+            <input v-model="newDate" placeholder="Enter New Date" />
+          </td>
+          <td v-if="this.editingId === item.id">
+            <input v-model="newWeight" placeholder="Enter New Weight" />
+          </td>
 
           <td v-if="!this.editingId" class="editable {{ item.id }}">
             {{ item.weight }}
@@ -93,11 +97,17 @@ export default {
     weightList: [],
     userId: null,
     editingId: null,
+    newDate: "",
+    newWeight: "",
   }),
   mounted: function () {
     this.getWeightList();
   },
   methods: {
+    handleChange(event) {
+      this.editingChanges = event.target.value;
+    },
+
     async getWeightList() {
       const res = await axios.get("http://localhost:8000/weigh_ins");
       this.weightList = res.data;
