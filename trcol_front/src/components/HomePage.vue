@@ -4,6 +4,10 @@
 
     <h1>Trend Collider</h1>
     <h2>Collide your Trends</h2>
+    <img
+      src="../assets/tr.png"
+      alt="image featuring someone's weight and someone's stock pick"
+    />
     <div v-for="(item, index) in weightList" :key="index">
       <h2>{{ item }}</h2>
     </div>
