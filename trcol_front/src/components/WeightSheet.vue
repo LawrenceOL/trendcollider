@@ -8,20 +8,20 @@
           <th>Date</th>
           <th>Weight</th>
           <th>Edit</th>
+          <th>Delete</th>
         </tr>
         <tr>
           <td>{{ item.date }}</td>
           <td>{{ item.weight }}</td>
-          <td>
-            <button>
+          <td class="editing">
+            <button @click="this.handleClick" v-bind:id="index" class="editing">
               <svg
-                @click="counter++"
-                v-on:click="alert('hi')"
+                v-bind:id="index"
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
                 height="16"
                 fill="currentColor"
-                class="bi bi-pencil-square"
+                class="editing"
                 viewBox="0 0 16 16"
               >
                 <path
@@ -32,6 +32,15 @@
                   d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"
                 />
               </svg>
+            </button>
+          </td>
+          <td>
+            <button
+              @click="this.handleClick"
+              v-bind:id="index"
+              class="deleting"
+            >
+              ❌
             </button>
           </td>
         </tr>
@@ -74,8 +83,19 @@ export default {
   methods: {
     async getWeightList() {
       const res = await axios.get("http://127.0.0.1:8000/weigh_ins");
-
       this.weightList = res.data;
+    },
+    handleClick(event) {
+      alert(`${event.target.id}`);
+      alert(`${event.target.classList}`);
+      // this.removeTask(event.target.id);
+    },
+    removeTask(index) {
+      //this.$delete(this.tasks, index);
+      let remove = confirm("Are you sure? This will delete the weigh-in data.");
+      if (remove === true) {
+        this.weightList.splice(index, 1);
+      }
     },
     // async getWeigh_Ins(coords) {
     //   const res = await axios.get(`path`);
