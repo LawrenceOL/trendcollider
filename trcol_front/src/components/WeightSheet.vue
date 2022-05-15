@@ -75,7 +75,7 @@ export default {
   },
   data: () => ({
     weightList: [],
-    counter: 0,
+    userId: null,
   }),
   mounted: function () {
     this.getWeightList();
@@ -84,10 +84,12 @@ export default {
     async getWeightList() {
       const res = await axios.get("http://127.0.0.1:8000/weigh_ins");
       this.weightList = res.data;
+      this.userId = res.data[0].weigh_in_user;
     },
     handleClick(event) {
       alert(`${event.target.id}`);
       alert(`${event.target.classList}`);
+
       // this.removeTask(event.target.id);
     },
     removeTask(index) {
