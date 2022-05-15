@@ -56,17 +56,13 @@ def weigh_ins(request):
     return JsonResponse(weigh_ins_list, safe=False)
 
 
-@api_view(['GET', 'PUT', 'DELETE'])
-def weigh_in_detail(request):
+@api_view(['GET', 'PUT', 'DELETE', 'POST'])
+def weigh_in_detail(request, id):
     # find weigh_in by pk (id)
 
-    if request.method == 'GET':
-        # weigh_in = Weigh_In.objects.filter(
-        #     id=pk).values('date', 'weight', 'id')
-        # check_params = request.query_params.get()
-        print('whaaaaaaaaaat')
-        # print(check_params)
-        # return weigh_in
+    if request.method == 'DELETE':
+
+        print(id)
         return HttpResponse("made it")
 
 
