@@ -67,7 +67,6 @@
       </table>
     </div>
   </div>
-  <div>Add a weight</div>
 </template>
 
 <script>
