@@ -92,19 +92,20 @@ export default {
       this.weightList = res.data;
       this.userId = res.data[0].weigh_in_user;
     },
-    navigateItem() {
-      this.$router.push(`/id/date/weight`);
+    navigateItem(id) {
+      this.$router.push(`/update/${id}`);
     },
 
-    handleClick(event, index) {
+    handleClick(event) {
       console.log(`${event.target.id}`);
+      this.navigateItem(event.target.id);
       // console.log(`${event.target.classList}`);
-      if (event.target.classList == "deleting") {
-        this.removeWeighIn(event, index);
-      }
-      if (event.target.classList == "editing") {
-        this.editingId = event.target.id;
-      }
+      // if (event.target.classList == "deleting") {
+      //   this.removeWeighIn(event, index);
+      // }
+      // if (event.target.classList == "editing") {
+      //   this.editingId = event.target.id;
+      // }
     },
     async removeWeighIn(event, index) {
       let remove = confirm("Are you sure? This will delete the weigh-in data.");

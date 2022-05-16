@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>Update Weight</h1>
-    <form @submit.prevent="onSubmit" @submit="addWeighIn()">
+    <form @submit.prevent="onSubmit" @submit="UpdateWeight()">
       <input v-model="newWeight" placeholder="Update Weight" />
       <button>Submit</button>
     </form>
@@ -9,7 +9,7 @@
 </template>
 
 <script>
-// import axios from "axios";
+import axios from "axios";
 
 export default {
   name: "UpdateWeight",
@@ -19,12 +19,13 @@ export default {
   }),
   mounted: function () {},
   methods: {
-    async addWeighIn() {
-      //   await axios.post(
-      //     `http://127.0.0.1:8000/weigh_in_detail/${this.newWeight}`
-      //   );
-      //   this.newWeight = null;
-      await this.$router.push("/WeightSheet");
+    async UpdateWeight() {
+      await axios.put(
+        `http://127.0.0.1:8000/weigh_in_detail/11`,
+        this.newWeight
+      );
+      this.newWeight = null;
+      //   await this.$router.push("/WeightSheet");
     },
   },
 };
