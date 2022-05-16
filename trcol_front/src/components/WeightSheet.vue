@@ -120,6 +120,7 @@ export default {
         await axios.delete(
           `http://127.0.0.1:8000/weigh_in_detail/${event.target.id}`
         );
+        this.$router.push("/weightsheet");
       }
     },
   },
