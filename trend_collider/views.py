@@ -57,7 +57,7 @@ def weigh_ins(request):
     return JsonResponse(weigh_ins_list, safe=False)
 
 
-@api_view(['GET', 'PUT', 'DELETE', 'POST'])
+@api_view(['GET', 'PUT', 'DELETE', ])
 def weigh_in_detail(request, id):
     weigh_in = Weigh_In.objects.filter(
         id=id,)
@@ -66,6 +66,21 @@ def weigh_in_detail(request, id):
     if request.method == 'DELETE':
 
         weigh_in.delete()
+        return HttpResponseRedirect("/")
+
+    return render(request)
+
+
+@api_view(['GET', 'POST'])
+def add_weigh_in(request):
+
+    if request.method == 'POST':
+
+        new_date = request.form.get("weight")
+        new_weight = request.form.get("weight")
+        weigh_in = Weigh_In(date=new_date, weight=new_weight)
+        weigh_in.save(force_insert=True)
+
         return HttpResponseRedirect("/")
 
     return render(request)

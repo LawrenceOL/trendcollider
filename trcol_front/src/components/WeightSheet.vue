@@ -1,7 +1,7 @@
 <template>
   <div class="weight_chart">
     <h1>Weight Sheet</h1>
-    <h2 v-if="!this.editingId">Editing Mode Enabled</h2>
+    <h2 v-if="this.editingId">Editing Mode Enabled</h2>
 
     <div v-for="(item, index) in weightList" :key="index">
       <table style="width: 100%" border="1px solid black" class="table">
@@ -13,7 +13,6 @@
           <th>Delete</th>
         </tr>
         <tr>
-          <!-- default not in editing mode -->
           <td v-if="!this.editingId" class="editable {{ item.id }}">
             {{ item.date }}
           </td>
@@ -68,44 +67,32 @@
       </table>
     </div>
   </div>
+  <div>Add a weight</div>
 </template>
 
 <script>
-// import { useAuth0 } from "@auth0/auth0-vue";
 import axios from "axios";
-// import WeightChart from './components/WeightChart.vue'
-// const API_KEY =  ''
-
-// import NavBar from "./NavBar.vue";
 
 export default {
-  //   setup() {
-  //     const { loginWithRedirect } = useAuth0();
-
-  //     return {
-  //       login: () => {
-  //         loginWithRedirect();
-  //       },
-  //     };
-  //   },
-
   name: "HomePage",
-  components: {
-    // NavBar,
-  },
+  components: {},
   data: () => ({
     weightList: [],
     userId: null,
     editingId: null,
     newDate: "",
     newWeight: "",
+    addWeight: "",
+    addDate: "",
   }),
   mounted: function () {
     this.getWeightList();
   },
   methods: {
-    handleChange(event) {
-      this.editingChanges = event.target.value;
+    async addWeighIn(addWeight, addDate) {
+      await axios.post(
+        `http://127.0.0.1:8000/weigh_in_detail/${addWeight}/${addDate}`
+      );
     },
 
     async getWeightList() {
@@ -126,17 +113,12 @@ export default {
       if (event.target.classList == "editing") {
         this.editingId = event.target.id;
       }
-      // if (event.target.id == this.editingId) {
-      //   this.editingId = null;
-      // }
     },
     async removeWeighIn(event, index) {
-      //this.$delete(this.tasks, index);
-
       let remove = confirm("Are you sure? This will delete the weigh-in data.");
       if (remove === true) {
         this.weightList.splice(index, 1);
-        console.log(event.target.id);
+        // console.log(event.target.id);
         await axios.delete(
           `http://127.0.0.1:8000/weigh_in_detail/${event.target.id}`
         );
@@ -146,7 +128,6 @@ export default {
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 h3 {
   margin: 40px 0 0;
