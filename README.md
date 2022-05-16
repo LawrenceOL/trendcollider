@@ -16,7 +16,7 @@
 
 #### Reach your weight loss goals faster and with greater ease by tracking your data alongside a moving average. And check stock prices at the same time.
 
-### Soon to be deployed on Heroku
+### [Heroku Link](https://serene-retreat-27578.herokuapp.com/)
 
 ### [Trello Planning Board](https://trello.com/b/2Av2SPUI/trendsmash)
 
@@ -33,11 +33,20 @@
 - Python
   - Django
 - PostgreSQL
+- Bootstrap
+  -BootstrapVue
+- Auth0
+  - OAuth 2.0
+
+### **_Getting Started_**
+
+- To run this project locally, download the entire repository. Start a python virtual environment and install dependencies. CD into the front end and npm i to install dependecies. python3 manage.py runserver to start back end and vue serve to start front end. Enjoy!
+
 
 ### **_Future Updates_**
 
-- [ ] Link to deployment
-- [ ] Instructions for local installation
+- [x] Link to deployment
+- [ ] Trend graph charting for stocks and weight
 
 ### **_Credits_**
 
