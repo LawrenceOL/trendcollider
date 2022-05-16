@@ -60,7 +60,7 @@ def weigh_ins(request):
 
 @api_view(['GET', 'PUT', 'DELETE', 'POST'])
 def weigh_in_detail(request, id):
-    weigh_in = Weigh_In.objects.filter(
+    weigh_in = Weigh_In.objects.get(
         id=id,)
     # find weigh_in by pk (id)
 
@@ -79,7 +79,7 @@ def weigh_in_detail(request, id):
     if request.method == 'PUT':
 
         weight_revised = Weigh_In(
-            weigh_in_user_id=1, date=request.data['date'], weight=request.data['weight'])
+            weigh_in_user_id=1, date=request.data['date'], weight=request.data['weight'], id=id)
         weight_revised.save()
         print(weight_revised)
 
