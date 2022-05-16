@@ -11,43 +11,10 @@
     <div v-for="(item, index) in weightList" :key="index">
       <h2>{{ item }}</h2>
     </div>
-    <!--  <button @click="login">Log in</button> -->
   </div>
 </template>
 <script>
-// import { useAuth0 } from "@auth0/auth0-vue";
-// import axios from "axios";
-// import WeightChart from './components/WeightChart.vue'
-// const API_KEY =  ''
-
-// import NavBar from "./NavBar.vue";
-
-export default {
-  //   setup() {
-  //     const { loginWithRedirect } = useAuth0();
-  //     return {
-  //       login: () => {
-  //         loginWithRedirect();
-  //       },
-  //     };
-  //   },
-  //   name: "HomePage",
-  //   components: {
-  //     // NavBar,
-  //   },
-  //   data: () => ({
-  //     weightList: [],
-  //   }),
-  //   mounted: function () {
-  //     this.getWeightList();
-  //   },
-  //   methods: {
-  //     async getWeightList() {
-  //       const res = await axios.get("http://127.0.0.1:8000/weigh_ins");
-  //       this.weightList = res.data;
-  //     },
-  //   },
-};
+export default {};
 </script>
 
 <style>

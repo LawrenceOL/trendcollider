@@ -9,7 +9,6 @@ import StockPage from "./components/StockPage.vue";
 
 const routes = [
   { path: "/", component: HomePage, name: "HomePage" },
-  // { path: "/app", component: App, name: "App" },
   { path: "/weightsheet", component: WeightSheet, name: "WeightSheet" },
   { path: "/weighin", component: WeighIn, name: "WeighIn" },
   { path: "/update/:id/:date", component: UpdateWeight, name: "UpdateWeight" },

@@ -7,7 +7,7 @@
         <tr>
           <th>Date</th>
           <th>Weight</th>
-          <!-- <th>ID</th> -->
+
           <th>Edit</th>
           <th>Delete</th>
         </tr>
@@ -19,8 +19,6 @@
           <td class="editable {{ item.id }} {{ item.date }}">
             {{ item.weight }}
           </td>
-
-          <!-- editing mode -->
 
           <td class="editing">
             <button
@@ -100,10 +98,8 @@ export default {
     },
 
     handleClick(event, index) {
-      console.log(`${event.target.id}`);
       this.editingDate = event.target.classList[0];
       this.navigateItem(event.target.id, this.editingDate);
-      console.log(`${event.target.classList}`);
 
       if (event.target.classList == "deleting") {
         this.removeWeighIn(event, index);
@@ -116,7 +112,7 @@ export default {
       let remove = confirm("Are you sure? This will delete the weigh-in data.");
       if (remove === true) {
         this.weightList.splice(index, 1);
-        // console.log(event.target.id);
+
         await axios.delete(
           `http://127.0.0.1:8000/weigh_in_detail/${event.target.id}`
         );

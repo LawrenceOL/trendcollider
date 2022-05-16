@@ -78,7 +78,6 @@ def weigh_in_detail(request, id):
         weight_revised = Weigh_In(
             weigh_in_user_id=1, date=request.data['date'], weight=request.data['weight'], id=id)
         weight_revised.save()
-        print(weight_revised)
 
         return HttpResponse("Updated")
 
