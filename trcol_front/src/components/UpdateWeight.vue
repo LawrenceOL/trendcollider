@@ -1,6 +1,7 @@
 <template>
   <div>
     <h1>Update Weight</h1>
+    <h1>{{ params_date }}</h1>
     <form @submit.prevent="onSubmit" @submit="UpdateWeight()">
       <input v-model="newWeight" placeholder="Update Weight" />
       <button>Submit</button>
@@ -26,9 +27,10 @@ export default {
   },
   methods: {
     async UpdateWeight() {
-      let payload = { weight: this.newWeight, date: this.params.date };
+      let payload = { weight: this.newWeight, date: this.params_date };
+
       await axios.put(
-        `http://127.0.0.1:8000/weigh_in_detail/${this.params_id}/`,
+        `http://127.0.0.1:8000/weigh_in_detail/${this.params_id}`,
         payload
       );
       this.newWeight = null;

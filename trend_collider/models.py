@@ -79,7 +79,7 @@ class Weigh_In(models.Model):
         settings.AUTH_USER_MODEL,
         on_delete=models.PROTECT
     )
-    date = models.DateField(unique=True)
+    date = models.DateField()
     weight = models.FloatField()
 
     def __str__(self):
