@@ -30,23 +30,9 @@ oauth.register(
 
 
 def stock_list(request):
-    stocks = Stock_Pick.objects.all()
-    return render(request, 'stock_list.html', {'stocks': stocks})
-
-
-def weigh_ins(request):
-
-    weigh_ins = Weigh_In.objects.filter(weigh_in_user=1)
-
-    # return render(
-    #     request,
-    #     "weigh_ins.html",
-    #     context={
-    #         "session": request.session.get("user"),
-    #         "pretty": json.dumps(request.session.get("user"), indent=4),
-    #         'weigh_ins': weigh_ins,
-    #     },
-    # )
+    stocks = Stock_Pick.objects.all().values('id', 'symbol', 'description')
+    stock_symbols_list = list(stocks)
+    return JsonResponse(stock_symbols_list, safe=False)
 
 
 def weigh_ins(request):
