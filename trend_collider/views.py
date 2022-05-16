@@ -11,6 +11,7 @@ from rest_framework.parsers import JSONParser
 from django.http import HttpResponse
 from django.contrib.auth import authenticate, login
 from django.http import JsonResponse, HttpResponseRedirect
+from datetime import datetime
 
 
 from .models import Weigh_In, Stock_Pick, MyUser
@@ -57,7 +58,7 @@ def weigh_ins(request):
     return JsonResponse(weigh_ins_list, safe=False)
 
 
-@api_view(['GET', 'PUT', 'DELETE', ])
+@api_view(['GET', 'PUT', 'DELETE', 'POST'])
 def weigh_in_detail(request, id):
     weigh_in = Weigh_In.objects.filter(
         id=id,)
@@ -68,20 +69,14 @@ def weigh_in_detail(request, id):
         weigh_in.delete()
         return HttpResponseRedirect("/")
 
-    return render(request)
-
-
-@api_view(['GET', 'POST'])
-def add_weigh_in(request):
-
     if request.method == 'POST':
 
-        new_date = request.form.get("weight")
-        new_weight = request.form.get("weight")
-        weigh_in = Weigh_In(date=new_date, weight=new_weight)
-        weigh_in.save(force_insert=True)
-
-        return HttpResponseRedirect("/")
+        print('************')
+        print(id)
+        now = datetime.now()
+        new = Weigh_In(weigh_in_user_id=1, date=now, weight=id)
+        new.save()
+        return HttpResponse("hi")
 
     return render(request)
 
