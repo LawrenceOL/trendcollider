@@ -67,16 +67,20 @@ def weigh_in_detail(request, id):
     if request.method == 'DELETE':
 
         weigh_in.delete()
-        return HttpResponseRedirect("/")
+        return HttpResponse("Deleted")
 
     if request.method == 'POST':
 
-        print('************')
-        print(id)
         now = datetime.now()
         new = Weigh_In(weigh_in_user_id=1, date=now, weight=id)
         new.save()
-        return HttpResponse("hi")
+        return HttpResponse("Posted")
+
+    if request.method == 'PUT':
+
+        print(request.headers["weight"])
+
+        return HttpResponse("Updated")
 
     return render(request)
 

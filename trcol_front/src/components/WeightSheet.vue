@@ -1,7 +1,6 @@
 <template>
   <div class="weight_chart">
     <h1>Weight Sheet</h1>
-    <h2 v-if="this.editingId">Editing Mode Enabled</h2>
 
     <div v-for="(item, index) in weightList" :key="index">
       <table style="width: 100%" border="1px solid black" class="table">
@@ -13,17 +12,11 @@
           <th>Delete</th>
         </tr>
         <tr>
-          <td v-if="!this.editingId" class="editable {{ item.id }}">
+          <td class="editable {{ item.id }}">
             {{ item.date }}
           </td>
-          <td v-if="this.editingId">
-            <input v-model="newDate" placeholder="Enter New Date" />
-          </td>
-          <td v-if="this.editingId === item.id">
-            <input v-model="newWeight" placeholder="Enter New Weight" />
-          </td>
 
-          <td v-if="!this.editingId" class="editable {{ item.id }}">
+          <td class="editable {{ item.id }}">
             {{ item.weight }}
           </td>
 
@@ -73,7 +66,7 @@
 import axios from "axios";
 
 export default {
-  name: "HomePage",
+  name: "WeightSheet",
   components: {},
   data: () => ({
     weightList: [],
@@ -104,7 +97,7 @@ export default {
     },
 
     handleClick(event, index) {
-      // console.log(`${event.target.id}`);
+      console.log(`${event.target.id}`);
       // console.log(`${event.target.classList}`);
       if (event.target.classList == "deleting") {
         this.removeWeighIn(event, index);
