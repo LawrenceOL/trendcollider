@@ -12,11 +12,11 @@
           <th>Delete</th>
         </tr>
         <tr>
-          <td class="editable {{ item.id }}">
+          <td class="editable {{ item.id }} {{ item.date }}">
             {{ item.date }}
           </td>
 
-          <td class="editable {{ item.id }}">
+          <td class="editable {{ item.id }} {{ item.date }}">
             {{ item.weight }}
           </td>
 
@@ -26,10 +26,12 @@
             <button
               @click="this.handleClick"
               v-bind:id="item.id"
+              v-bind:class="item.date"
               class="editing"
             >
               <svg
                 v-bind:id="item.id"
+                v-bind:class="item.date"
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
                 height="16"
@@ -76,6 +78,7 @@ export default {
     newWeight: "",
     addWeight: "",
     addDate: "",
+    editingDate: "",
   }),
   mounted: function () {
     this.getWeightList();
@@ -92,20 +95,22 @@ export default {
       this.weightList = res.data;
       this.userId = res.data[0].weigh_in_user;
     },
-    navigateItem(id) {
-      this.$router.push(`/update/${id}`);
+    navigateItem(id, date) {
+      this.$router.push(`/update/${id}/${date}`);
     },
 
-    handleClick(event) {
+    handleClick(event, index) {
       console.log(`${event.target.id}`);
-      this.navigateItem(event.target.id);
-      // console.log(`${event.target.classList}`);
-      // if (event.target.classList == "deleting") {
-      //   this.removeWeighIn(event, index);
-      // }
-      // if (event.target.classList == "editing") {
-      //   this.editingId = event.target.id;
-      // }
+      this.editingDate = event.target.classList[0];
+      this.navigateItem(event.target.id, this.editingDate);
+      console.log(`${event.target.classList}`);
+
+      if (event.target.classList == "deleting") {
+        this.removeWeighIn(event, index);
+      }
+      if (event.target.classList == "editing") {
+        this.editingId = event.target.id;
+      }
     },
     async removeWeighIn(event, index) {
       let remove = confirm("Are you sure? This will delete the weigh-in data.");

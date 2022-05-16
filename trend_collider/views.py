@@ -77,8 +77,10 @@ def weigh_in_detail(request, id):
         return HttpResponse("Posted")
 
     if request.method == 'PUT':
-
-        print(request.headers["weight"])
+        now = datetime.now()
+        weight_revised = Weigh_In(
+            weigh_in_user_id=1, date=request.data['date'], weight=request.data['weight'])
+        weight_revised.save()
 
         return HttpResponse("Updated")
 

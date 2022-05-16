@@ -13,19 +13,26 @@ import axios from "axios";
 
 export default {
   name: "UpdateWeight",
+
   components: {},
   data: () => ({
     newWeight: null,
+    params_id: null,
+    params_date: null,
   }),
-  mounted: function () {},
+  mounted: function () {
+    this.params_id = this.$route.params.id;
+    this.params_date = this.$route.params.date;
+  },
   methods: {
     async UpdateWeight() {
+      let payload = { weight: this.newWeight, date: this.params.date };
       await axios.put(
-        `http://127.0.0.1:8000/weigh_in_detail/11`,
-        this.newWeight
+        `http://127.0.0.1:8000/weigh_in_detail/${this.params_id}/`,
+        payload
       );
       this.newWeight = null;
-      //   await this.$router.push("/WeightSheet");
+      await this.$router.push("/WeightSheet");
     },
   },
 };

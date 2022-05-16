@@ -11,7 +11,7 @@ const routes = [
   // { path: "/app", component: App, name: "App" },
   { path: "/weightsheet", component: WeightSheet, name: "WeightSheet" },
   { path: "/weighin", component: WeighIn, name: "WeighIn" },
-  { path: "/update/:id", component: UpdateWeight, name: "UpdateWeight" },
+  { path: "/update/:id/:date", component: UpdateWeight, name: "UpdateWeight" },
 ];
 
 const router = createRouter({
