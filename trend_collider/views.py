@@ -58,6 +58,17 @@ def weigh_ins(request):
     return JsonResponse(weigh_ins_list, safe=False)
 
 
+@api_view(['POST'])
+def add_weigh_in(request):
+
+    if request.method == 'POST':
+        now = datetime.now()
+        new = Weigh_In(weigh_in_user_id=1, date=now,
+                       weight=request.data['weight'])
+        new.save()
+        return HttpResponse("Posted")
+
+
 @api_view(['GET', 'PUT', 'DELETE', 'POST'])
 def weigh_in_detail(request, id):
     weigh_in = Weigh_In.objects.get(

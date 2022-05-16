@@ -11,6 +11,6 @@ urlpatterns = [
     path("api/private", views.private, name="private"),
     path("weigh_ins", views.weigh_ins, name="weigh_ins"),
     path("weigh_in_detail/<id>", views.weigh_in_detail, name="weigh_in_detail"),
-    # path("add_weigh_in/<id>",
+    path("add_weigh_in/", views.add_weigh_in, name="add_weigh_in"),
     #  views.add_weigh_in, name = "add_weigh_in"),
 ]

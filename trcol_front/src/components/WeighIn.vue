@@ -20,9 +20,8 @@ export default {
   mounted: function () {},
   methods: {
     async addWeighIn() {
-      await axios.post(
-        `http://127.0.0.1:8000/weigh_in_detail/${this.newWeight}`
-      );
+      let payload = { weight: this.newWeight };
+      await axios.post(`http://127.0.0.1:8000/add_weigh_in/`, payload);
       this.newWeight = null;
       await this.$router.push("/WeightSheet");
     },
