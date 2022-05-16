@@ -20,6 +20,11 @@
 
 ### [Trello Planning Board](https://trello.com/b/2Av2SPUI/trendsmash)
 
+### **_Screenshots_**
+
+<img src="https://raw.githubusercontent.com/LawrenceOL/trendcollider/7ea5f8a6e8462ee0637c7f80e1c9d80602033023/weightsheet.png" alt="Trend Collider"  style="max-width: 70%;">
+<img src="https://raw.githubusercontent.com/LawrenceOL/trendcollider/7ea5f8a6e8462ee0637c7f80e1c9d80602033023/stocks.png" alt="Trend Collider"  style="max-width: 70%;">
+
 ---
 
 ### **_Technologies Used_**
