@@ -2,6 +2,7 @@
   <nav>
     <router-link to="/" name="HomePage">Home</router-link>
     <router-link to="/weightsheet">Monthly Weight Sheet</router-link>
+    <router-link to="/weighin">Log Today's Weight</router-link>
   </nav>
 </template>
 
